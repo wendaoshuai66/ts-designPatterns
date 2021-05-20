@@ -2,39 +2,34 @@
 
 // 接受者角色类
 class Receiver {
-    public action(): void {
-        console.log('执行操作')
-    }
+  public action(): void {
+    console.log("执行操作");
+  }
 }
 
 // 抽象命令角色类
-
 interface Command {
-    excute(): void;
+  excute(): void;
 }
-
-
 class ConCreateCommand implements Command {
-    private receiver: Receiver = null;
+  private receiver: Receiver = null;
 
-    constructor(receiver: Receiver) {
-        this.receiver = receiver;
-    }
-    public excute(): void {
-        this.receiver.action();
-    }
+  constructor(receiver: Receiver) {
+    this.receiver = receiver;
+  }
+  public excute(): void {
+    this.receiver.action();
+  }
 }
-
 // 请求者的类
-
 class Invoker {
-    private conmmant: Command = null;
-    constructor(conmmant: Command) {
-        this.conmmant = conmmant;
-    }
-    public action(): void {
-        this.conmmant.excute();
-    }
+  private conmmant: Command = null;
+  constructor(conmmant: Command) {
+    this.conmmant = conmmant;
+  }
+  public action(): void {
+    this.conmmant.excute();
+  }
 }
 
 const receiver: Receiver = new Receiver();
